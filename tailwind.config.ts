@@ -19,6 +19,9 @@ const config: Config = {
     },
   },
   plugins: [],
+  screens: {
+    'mobile': {'max': '767px'},
+  },
 };
 
 export default config;
