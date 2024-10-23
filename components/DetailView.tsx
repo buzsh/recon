@@ -48,8 +48,8 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
     <div className="flex-1 overflow-y-auto bg-white dark:bg-black text-gray-900 dark:text-gray-100">
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
-          <h1 className="text-2xl font-bold">{startup.name}</h1>
-          <div className="flex space-x-4">
+          <h1 className="hidden md:block text-2xl font-bold">{startup.name}</h1>
+          <div className="flex space-x-4 ml-auto">
             <button onClick={copyUrl} className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               <HiOutlineLink className="w-6 h-6" />
             </button>

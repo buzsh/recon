@@ -55,7 +55,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
           </button>
         )}
         <h1 className="text-xl font-semibold">
-          {view === 'industries' && 'Industries'}
+          {view === 'industries' && 'Dashboard'}
           {view === 'startups' && selectedIndustryName}
           {view === 'detail' && selectedStartup?.name}
         </h1>

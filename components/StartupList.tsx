@@ -31,7 +31,7 @@ const StartupList: React.FC<StartupListProps> = ({
   return (
     <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto">
       <div className="p-4">
-        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+        <h2 className="hidden md:block text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           {selectedIndustryName || "All Industry"} Startups
         </h2>
         <ul className="space-y-1">
