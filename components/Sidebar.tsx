@@ -14,29 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onSelectIndustry,
 }) => {
   return (
-    <aside className="w-full md:w-64 bg-white mobile:bg-transparent dark:bg-black mobile:dark:bg-transparent overflow-y-auto">
-      <div className="p-4">
-        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
-          Mailbox
-        </h2>
-        <ul className="space-y-1">
-          {[
-            { icon: FaInbox, name: "Inbox" },
-            { icon: FaEnvelope, name: "Drafts" },
-            { icon: FaPaperPlane, name: "Sent" },
-            { icon: FaTrash, name: "Trash" },
-          ].map((item, index) => (
-            <li key={index}>
-              <button
-                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e] text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
-              >
-                <item.icon className="w-4 h-4 mr-3 text-blue-500 dark:text-blue-400 flex-shrink-0" />
-                <span className="truncate">{item.name}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <aside className="w-64 bg-gray-100 dark:bg-gray-900 overflow-y-auto">
       <div className="p-4">
         <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           Industries
@@ -71,6 +49,28 @@ const Sidebar: React.FC<SidebarProps> = ({
                   selectedIndustryId === industry.id ? "text-white" : "text-blue-500 dark:text-blue-400"
                 }`} />
                 <span className="truncate">{industry.name}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="p-4">
+        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+          Mailbox
+        </h2>
+        <ul className="space-y-1">
+          {[
+            { icon: FaInbox, name: "Inbox" },
+            { icon: FaEnvelope, name: "Drafts" },
+            { icon: FaPaperPlane, name: "Sent" },
+            { icon: FaTrash, name: "Trash" },
+          ].map((item, index) => (
+            <li key={index}>
+              <button
+                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e] text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
+              >
+                <item.icon className="w-4 h-4 mr-3 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                <span className="truncate">{item.name}</span>
               </button>
             </li>
           ))}

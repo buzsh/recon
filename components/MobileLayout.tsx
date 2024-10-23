@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Sidebar from './Sidebar';
 import StartupList from './StartupList';
 import DetailView from './DetailView';
 import { Industry, Startup } from '../data/types';
 import { IoChevronBackOutline } from "react-icons/io5";
+import { FaFolder, FaGlobe, FaInbox, FaEnvelope, FaPaperPlane, FaTrash } from 'react-icons/fa';
 
 interface MobileLayoutProps {
   industries: Industry[];
@@ -62,11 +62,54 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
       </header>
       <main className="flex-1 overflow-y-auto">
         {view === 'industries' && (
-          <Sidebar
-            industries={industries}
-            selectedIndustryId={selectedIndustryId}
-            onSelectIndustry={handleSelectIndustry}
-          />
+          <div className="p-4">
+            <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+              Industries
+            </h2>
+            <ul className="space-y-2">
+              <li>
+                <button
+                  onClick={() => handleSelectIndustry(null)}
+                  className="w-full flex items-center px-4 py-3 rounded-md text-[17px] font-normal tracking-[-0.24px] leading-[20px] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e]"
+                >
+                  <FaGlobe className="w-6 h-6 mr-4 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                  <span className="truncate">All Industries</span>
+                </button>
+              </li>
+              {industries.map((industry) => (
+                <li key={industry.id}>
+                  <button
+                    onClick={() => handleSelectIndustry(industry.id)}
+                    className="w-full flex items-center px-4 py-3 rounded-md text-[17px] font-normal tracking-[-0.24px] leading-[20px] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e]"
+                  >
+                    <FaFolder className="w-6 h-6 mr-4 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                    <span className="truncate">{industry.name}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            
+            <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mt-8 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+              Mailbox
+            </h2>
+            <ul className="space-y-2">
+              {[
+                { icon: FaInbox, name: "Inbox" },
+                { icon: FaEnvelope, name: "Drafts" },
+                { icon: FaPaperPlane, name: "Sent" },
+                { icon: FaTrash, name: "Trash" },
+              ].map((item, index) => (
+                <li key={index}>
+                  <button
+                    className="w-full flex items-center px-4 py-3 rounded-md text-[17px] font-normal tracking-[-0.24px] leading-[20px] text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e]"
+                  >
+                    <item.icon className="w-6 h-6 mr-4 text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                    <span className="truncate">{item.name}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         {view === 'startups' && (
           <StartupList
