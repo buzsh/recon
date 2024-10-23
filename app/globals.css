@@ -27,3 +27,20 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 60s linear infinite;
+}
+
+.ticker-container {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}

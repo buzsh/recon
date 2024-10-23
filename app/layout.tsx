@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { TrendingUp } from 'react-feather'; // Correct import for react-feather
+import TopHeader from "../components/TopHeader";
+import { startups } from "../data/sampleData";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,25 +20,31 @@ export const metadata: Metadata = {
   description: "Market intelligence and startup funding data",
 };
 
+const prepareTickerItems = () => {
+  return startups.map(startup => ({
+    id: startup.id,
+    name: startup.name,
+    latestFundingRound: startup.fundingRounds[0] ? {
+      type: startup.fundingRounds[0].type,
+      amountRaised: startup.fundingRounds[0].amountRaised,
+      valuation: startup.fundingRounds[0].valuation
+    } : undefined
+  })).filter(item => item.latestFundingRound);
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const tickerItems = prepareTickerItems();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="h-11 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex items-center px-4">
-          <div className="flex items-center">
-            <TrendingUp className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2" />
-            <h1 className="text-lg font-semibold">
-              <span className="text-black dark:text-white">Market</span>
-              <span className="text-blue-500 dark:text-blue-400">Recon</span>
-            </h1>
-          </div>
-        </header>
+        <TopHeader tickerItems={tickerItems} />
         <main className="h-[calc(100vh-44px)]">
           {children}
         </main>
