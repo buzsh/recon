@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Startup, FundingRound } from "../data/types";
 import FundingRoundPill from "./FundingRoundPill";
+import ValuationPill from "./ValuationPill";
 import { formatCurrency } from "../app/utils/formatCurrency";
 
 interface DetailViewProps {
@@ -41,7 +42,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
       <div className="p-4">
         <h1 className="text-2xl font-bold mb-2">{startup.name}</h1>
         <h2 className="text-xl font-semibold mb-4">Funding Rounds</h2>
-        <ul className="mb-4">
+        <ul className="mb-4 space-y-2">
           {startup.fundingRounds.map((round) => (
             <li key={round.id}>
               <button
@@ -57,9 +58,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
                   <span>{formatCurrency(round.amountRaised)}</span>
                 </div>
                 {round.valuation && (
-                  <span className="text-sm text-gray-500">
-                    Valuation: {formatCurrency(round.valuation)}
-                  </span>
+                  <ValuationPill valuation={round.valuation} amountRaised={round.amountRaised} />
                 )}
               </button>
             </li>

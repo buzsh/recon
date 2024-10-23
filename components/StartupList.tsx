@@ -2,6 +2,7 @@ import React from "react";
 import { Startup } from "../data/types";
 import { formatCurrency } from "../app/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
+import ValuationPill from "./ValuationPill";
 
 interface StartupListProps {
   startups: Startup[];
@@ -41,10 +42,18 @@ const StartupList: React.FC<StartupListProps> = ({
                     {latestFundingRound && (
                       <div className="flex items-center space-x-2 mt-1">
                         <FundingRoundPill type={latestFundingRound.type} />
-                        <span className="text-[14px] tracking-[-0.22px] leading-[18px] truncate">
+                        <span className="text-[14px] font-bold tracking-[-0.22px] leading-[18px]">
                           {formatCurrency(latestFundingRound.amountRaised)}
-                          {latestFundingRound.valuation && ` - Valuation: ${formatCurrency(latestFundingRound.valuation)}`}
                         </span>
+                        {latestFundingRound.valuation && (
+                          <>
+                            <span className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500">@</span>
+                            <ValuationPill
+                              valuation={latestFundingRound.valuation}
+                              amountRaised={latestFundingRound.amountRaised}
+                            />
+                          </>
+                        )}
                       </div>
                     )}
                     <p className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 line-clamp-2 mt-1">
