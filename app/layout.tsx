@@ -17,7 +17,22 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "MarketRecon",
-  description: "Market intelligence and startup funding data",
+  description: "AI-driven market research and intelligent idea generation",
+  openGraph: {
+    title: "MarketRecon",
+    description: "AI-driven market research and intelligent idea generation",
+    url: "https://recon-mauve.vercel.app",
+    siteName: "MarketRecon",
+    images: [
+      {
+        url: "https://recon-mauve.vercel.app/og-cover.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 const prepareTickerItems = (): TickerItem[] => {
