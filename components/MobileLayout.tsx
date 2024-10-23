@@ -47,10 +47,10 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
     : "All Industries";
 
   return (
-    <div className="h-screen flex flex-col">
-      <header className="bg-gray-100 p-4 flex items-center">
+    <div className="h-screen flex flex-col bg-white dark:bg-black text-gray-900 dark:text-gray-100">
+      <header className="bg-gray-100 dark:bg-gray-900 p-4 flex items-center border-b border-gray-200 dark:border-gray-800">
         {view !== 'industries' && (
-          <button onClick={handleBack} className="mr-4">
+          <button onClick={handleBack} className="mr-4 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
             <IoChevronBackOutline className="w-6 h-6" />
           </button>
         )}

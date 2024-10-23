@@ -65,28 +65,28 @@ const FundingHistoryGraph: React.FC<FundingHistoryGraphProps> = ({ fundingRounds
   ).filter(Boolean).join(' ');
 
   return (
-    <div ref={containerRef} style={{ width: '100%', height: '400px' }}>
-      <svg width={dimensions.width} height={dimensions.height}>
+    <div ref={containerRef} style={{ width: '100%', height: '400px' }} className="text-gray-900 dark:text-gray-100">
+      <svg width={dimensions.width} height={dimensions.height} className="bg-white dark:bg-black">
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {/* Y-axis */}
-          <line x1={0} y1={0} x2={0} y2={chartHeight} stroke="black" />
+          <line x1={0} y1={0} x2={0} y2={chartHeight} stroke="currentColor" />
           {[0, 0.25, 0.5, 0.75, 1].map((tick, index) => (
             <g key={index} transform={`translate(0, ${chartHeight * (1 - tick)})`}>
-              <line x1={-5} y1={0} x2={0} y2={0} stroke="black" />
-              <text x={-10} y={5} textAnchor="end" fontSize="12">
+              <line x1={-5} y1={0} x2={0} y2={0} stroke="currentColor" />
+              <text x={-10} y={5} textAnchor="end" fontSize="12" fill="currentColor">
                 {formatCurrency(maxAmount * tick)}
               </text>
             </g>
           ))}
 
           {/* X-axis */}
-          <line x1={0} y1={chartHeight} x2={chartWidth} y2={chartHeight} stroke="black" />
+          <line x1={0} y1={chartHeight} x2={chartWidth} y2={chartHeight} stroke="currentColor" />
           {cumulativeFunding.map((round, index) => (
             <g key={index} transform={`translate(${xScale(index)}, ${chartHeight})`}>
-              <text x={0} y={20} textAnchor="middle" fontSize="12" transform="rotate(-45)">
+              <text x={0} y={20} textAnchor="middle" fontSize="12" transform="rotate(-45)" fill="currentColor">
                 {round.type}
               </text>
-              <text x={0} y={35} textAnchor="middle" fontSize="10" transform="rotate(-45)">
+              <text x={0} y={35} textAnchor="middle" fontSize="10" transform="rotate(-45)" fill="currentColor">
                 {new Date(round.date).toLocaleDateString()}
               </text>
             </g>
@@ -125,6 +125,7 @@ const FundingHistoryGraph: React.FC<FundingHistoryGraphProps> = ({ fundingRounds
                 y={yScale(round.total) - 10}
                 textAnchor="middle"
                 fontSize="10"
+                fill="currentColor"
               >
                 {formatCurrency(round.amountRaised)}
               </text>
@@ -143,6 +144,7 @@ const FundingHistoryGraph: React.FC<FundingHistoryGraphProps> = ({ fundingRounds
                     y={yScale(round.valuation) - 10}
                     textAnchor="middle"
                     fontSize="10"
+                    fill="currentColor"
                   >
                     {formatCurrency(round.valuation)}
                   </text>
@@ -155,9 +157,9 @@ const FundingHistoryGraph: React.FC<FundingHistoryGraphProps> = ({ fundingRounds
         {/* Legend */}
         <g transform={`translate(${margin.left}, ${dimensions.height - 20})`}>
           <line x1={0} y1={-5} x2={20} y2={-5} stroke="#4299E1" strokeWidth="2" />
-          <text x={25} y={0} fontSize="12">Cumulative Funding</text>
+          <text x={25} y={0} fontSize="12" fill="currentColor">Cumulative Funding</text>
           <line x1={150} y1={-5} x2={170} y2={-5} stroke="#48BB78" strokeWidth="2" strokeDasharray="5,5" />
-          <text x={175} y={0} fontSize="12">Valuation</text>
+          <text x={175} y={0} fontSize="12" fill="currentColor">Valuation</text>
         </g>
       </svg>
     </div>

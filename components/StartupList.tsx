@@ -29,9 +29,9 @@ const StartupList: React.FC<StartupListProps> = ({
   });
 
   return (
-    <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 overflow-y-auto">
+    <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto">
       <div className="p-4">
-        <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           {selectedIndustryName || "All Industry"} Startups
         </h2>
         <ul className="space-y-1">
@@ -44,17 +44,17 @@ const StartupList: React.FC<StartupListProps> = ({
                   onClick={() => onSelectStartup(startup.id)}
                   className={`w-full text-left p-3 rounded-lg ${
                     selectedStartupId === startup.id
-                      ? "bg-blue-100"
-                      : "hover:bg-gray-100"
+                      ? "bg-blue-100 dark:bg-blue-900"
+                      : "hover:bg-gray-100 dark:hover:bg-[#2c2c2e]"
                   }`}
                 >
                   <div className="flex flex-col">
                     <div className="flex justify-between items-center">
-                      <span className="text-[17px] font-semibold tracking-[-0.37px] leading-[21px] truncate">
+                      <span className="text-[17px] font-semibold tracking-[-0.37px] leading-[21px] truncate text-gray-900 dark:text-gray-100">
                         {startup.name}
                       </span>
                       {latestFundingRound && (
-                        <span className="text-[14px] font-normal text-gray-400">
+                        <span className="text-[14px] font-normal text-gray-400 dark:text-gray-500">
                           {formatDate(latestFundingRound.createdAt)}
                         </span>
                       )}
@@ -62,12 +62,12 @@ const StartupList: React.FC<StartupListProps> = ({
                     {latestFundingRound && (
                       <div className="flex items-center space-x-2 mt-1">
                         <FundingRoundPill type={latestFundingRound.type} />
-                        <span className="text-[14px] font-bold tracking-[-0.22px] leading-[18px]">
+                        <span className="text-[14px] font-bold tracking-[-0.22px] leading-[18px] text-gray-700 dark:text-gray-300">
                           {formatCurrency(latestFundingRound.amountRaised)}
                         </span>
                         {latestFundingRound.valuation && (
                           <>
-                            <span className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500">@</span>
+                            <span className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 dark:text-gray-400">@</span>
                             <ValuationPill
                               valuation={latestFundingRound.valuation}
                               amountRaised={latestFundingRound.amountRaised}
@@ -77,7 +77,7 @@ const StartupList: React.FC<StartupListProps> = ({
                         )}
                       </div>
                     )}
-                    <p className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 line-clamp-2 mt-1">
+                    <p className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 dark:text-gray-400 line-clamp-2 mt-1">
                       {aiSummary}
                     </p>
                   </div>

@@ -14,9 +14,9 @@ const Sidebar: React.FC<SidebarProps> = ({
   onSelectIndustry,
 }) => {
   return (
-    <aside className="w-full md:w-64 bg-gray-100 overflow-y-auto">
+    <aside className="w-full md:w-64 bg-white mobile:bg-transparent dark:bg-black mobile:dark:bg-transparent overflow-y-auto">
       <div className="p-4">
-        <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           Mailbox
         </h2>
         <ul className="space-y-1">
@@ -28,9 +28,9 @@ const Sidebar: React.FC<SidebarProps> = ({
           ].map((item, index) => (
             <li key={index}>
               <button
-                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 hover:bg-gray-200 text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
+                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e] text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
               >
-                <item.icon className="w-4 h-4 mr-3 text-blue-500 flex-shrink-0" />
+                <item.icon className="w-4 h-4 mr-3 text-blue-500 dark:text-blue-400 flex-shrink-0" />
                 <span className="truncate">{item.name}</span>
               </button>
             </li>
@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         </ul>
       </div>
       <div className="p-4">
-        <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
+        <h2 className="text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           Industries
         </h2>
         <ul className="space-y-1">
@@ -47,12 +47,12 @@ const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => onSelectIndustry(null)}
               className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
                 selectedIndustryId === null
-                  ? "bg-blue-500 text-white"
-                  : "text-gray-700 hover:bg-gray-200"
+                  ? "bg-blue-500 dark:bg-blue-600 text-white"
+                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e]"
               }`}
             >
               <FaGlobe className={`w-4 h-4 mr-3 flex-shrink-0 ${
-                selectedIndustryId === null ? "text-white" : "text-blue-500"
+                selectedIndustryId === null ? "text-white" : "text-blue-500 dark:text-blue-400"
               }`} />
               <span className="truncate">All Industries</span>
             </button>
@@ -63,12 +63,12 @@ const Sidebar: React.FC<SidebarProps> = ({
                 onClick={() => onSelectIndustry(industry.id)}
                 className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
                   selectedIndustryId === industry.id
-                    ? "bg-blue-500 text-white"
-                    : "text-gray-700 hover:bg-gray-200"
+                    ? "bg-blue-500 dark:bg-blue-600 text-white"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-[#2c2c2e]"
                 }`}
               >
                 <FaFolder className={`w-4 h-4 mr-3 flex-shrink-0 ${
-                  selectedIndustryId === industry.id ? "text-white" : "text-blue-500"
+                  selectedIndustryId === industry.id ? "text-white" : "text-blue-500 dark:text-blue-400"
                 }`} />
                 <span className="truncate">{industry.name}</span>
               </button>
