@@ -1,5 +1,7 @@
 import React from "react";
 import { Startup } from "../data/types";
+import { formatCurrency } from "../app/utils/formatCurrency";
+import FundingRoundPill from "./FundingRoundPill";
 
 interface StartupListProps {
   startups: Startup[];
@@ -37,12 +39,15 @@ const StartupList: React.FC<StartupListProps> = ({
                       {startup.name}
                     </span>
                     {latestFundingRound && (
-                      <span className="text-[14px] tracking-[-0.22px] leading-[18px] truncate">
-                        {latestFundingRound.series}: ${latestFundingRound.amountRaised.toLocaleString()}
-                        {latestFundingRound.valuation && ` - Valuation: $${latestFundingRound.valuation.toLocaleString()}`}
-                      </span>
+                      <div className="flex items-center space-x-2 mt-1">
+                        <FundingRoundPill type={latestFundingRound.type} />
+                        <span className="text-[14px] tracking-[-0.22px] leading-[18px] truncate">
+                          {formatCurrency(latestFundingRound.amountRaised)}
+                          {latestFundingRound.valuation && ` - Valuation: ${formatCurrency(latestFundingRound.valuation)}`}
+                        </span>
+                      </div>
                     )}
-                    <p className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 line-clamp-2">
+                    <p className="text-[14px] tracking-[-0.22px] leading-[18px] text-gray-500 line-clamp-2 mt-1">
                       {aiSummary}
                     </p>
                   </div>

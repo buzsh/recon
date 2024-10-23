@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Startup, FundingRound } from "../data/types";
+import FundingRoundPill from "./FundingRoundPill";
+import { formatCurrency } from "../app/utils/formatCurrency";
 
 interface DetailViewProps {
   startup: Startup | null;
@@ -44,13 +46,21 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
             <li key={round.id}>
               <button
                 onClick={() => setSelectedFundingRound(round)}
-                className={`w-full text-left px-2 py-1 rounded ${
+                className={`w-full text-left px-3 py-2 rounded-lg flex items-center justify-between ${
                   selectedFundingRound?.id === round.id
-                    ? "bg-blue-500 text-white"
-                    : "hover:bg-foreground/10"
+                    ? "bg-gray-100"
+                    : "hover:bg-gray-50"
                 }`}
               >
-                {round.series} - ${round.amountRaised.toLocaleString()}
+                <div className="flex items-center space-x-2">
+                  <FundingRoundPill type={round.type} />
+                  <span>{formatCurrency(round.amountRaised)}</span>
+                </div>
+                {round.valuation && (
+                  <span className="text-sm text-gray-500">
+                    Valuation: {formatCurrency(round.valuation)}
+                  </span>
+                )}
               </button>
             </li>
           ))}

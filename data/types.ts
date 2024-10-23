@@ -14,10 +14,12 @@ export interface Startup {
   updatedAt: string;
 }
 
+export type FundingRoundType = 'Pre-Seed' | 'Seed' | 'Series A' | 'Series B' | 'Series C' | 'Series D' | 'Series E' | 'Series F' | 'Series G' | 'Series H';
+
 export interface FundingRound {
   id: number;
   startupId: number;
-  series: string;
+  type: FundingRoundType;
   amountRaised: number;
   valuation?: number;
   date: string;

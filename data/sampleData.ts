@@ -13,6 +13,16 @@ export const industries: Industry[] = [
     name: 'Healthcare',
     startups: [],
   },
+  {
+    id: 3,
+    name: 'Fintech',
+    startups: [],
+  },
+  {
+    id: 4,
+    name: 'E-commerce',
+    startups: [],
+  },
   // Add more industries as needed
 ];
 
@@ -35,18 +45,38 @@ export const startups: Startup[] = [
     createdAt: '2023-10-02T00:00:00Z',
     updatedAt: '2023-10-02T00:00:00Z',
   },
+  {
+    id: 3,
+    name: 'FinanceFlow',
+    industries: [industries[2]],
+    fundingRounds: [],
+    articles: [],
+    createdAt: '2023-10-03T00:00:00Z',
+    updatedAt: '2023-10-03T00:00:00Z',
+  },
+  {
+    id: 4,
+    name: 'ShopSmart',
+    industries: [industries[3]],
+    fundingRounds: [],
+    articles: [],
+    createdAt: '2023-10-04T00:00:00Z',
+    updatedAt: '2023-10-04T00:00:00Z',
+  },
   // Add more startups as needed
 ];
 
 // Assign startups to industries
 industries[0].startups.push(startups[0]);
 industries[1].startups.push(startups[1]);
+industries[2].startups.push(startups[2]);
+industries[3].startups.push(startups[3]);
 
 export const fundingRounds: FundingRound[] = [
   {
     id: 1,
     startupId: 1,
-    series: 'Series A',
+    type: 'Series A',
     amountRaised: 5000000,
     valuation: 20000000,
     date: '2023-09-15T00:00:00Z',
@@ -54,6 +84,42 @@ export const fundingRounds: FundingRound[] = [
     articles: [],
     createdAt: '2023-09-15T00:00:00Z',
     updatedAt: '2023-09-15T00:00:00Z',
+  },
+  {
+    id: 2,
+    startupId: 2,
+    type: 'Seed',
+    amountRaised: 2000000,
+    valuation: 8000000,
+    date: '2023-09-20T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2023-09-20T00:00:00Z',
+    updatedAt: '2023-09-20T00:00:00Z',
+  },
+  {
+    id: 3,
+    startupId: 3,
+    type: 'Series B',
+    amountRaised: 15000000,
+    valuation: 100000000,
+    date: '2023-09-25T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2023-09-25T00:00:00Z',
+    updatedAt: '2023-09-25T00:00:00Z',
+  },
+  {
+    id: 4,
+    startupId: 4,
+    type: 'Series A',
+    amountRaised: 8000000,
+    valuation: 40000000,
+    date: '2023-09-30T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2023-09-30T00:00:00Z',
+    updatedAt: '2023-09-30T00:00:00Z',
   },
   // Add more funding rounds as needed
 ];
@@ -70,6 +136,39 @@ export const articles: Article[] = [
     createdAt: '2023-09-16T00:00:00Z',
     updatedAt: '2023-09-16T00:00:00Z',
   },
+  {
+    id: 2,
+    title: 'HealthInc Secures $2M in Seed Funding',
+    content: 'HealthInc, a promising healthcare startup, has secured $2 million in seed funding...',
+    url: 'https://example.com/healthinc-seed-funding',
+    publicationDate: '2023-09-21T00:00:00Z',
+    startupId: 2,
+    fundingRoundId: 2,
+    createdAt: '2023-09-21T00:00:00Z',
+    updatedAt: '2023-09-21T00:00:00Z',
+  },
+  {
+    id: 3,
+    title: 'FinanceFlow Raises $15M in Series B',
+    content: 'FinanceFlow, a leading fintech startup, has raised $15 million in a Series B round...',
+    url: 'https://example.com/financeflow-series-b',
+    publicationDate: '2023-09-26T00:00:00Z',
+    startupId: 3,
+    fundingRoundId: 3,
+    createdAt: '2023-09-26T00:00:00Z',
+    updatedAt: '2023-09-26T00:00:00Z',
+  },
+  {
+    id: 4,
+    title: 'ShopSmart Closes $8M Series A Round',
+    content: 'ShopSmart, an innovative e-commerce platform, has closed an $8 million Series A round...',
+    url: 'https://example.com/shopsmart-series-a',
+    publicationDate: '2023-10-01T00:00:00Z',
+    startupId: 4,
+    fundingRoundId: 4,
+    createdAt: '2023-10-01T00:00:00Z',
+    updatedAt: '2023-10-01T00:00:00Z',
+  },
   // Add more articles as needed
 ];
 
@@ -81,15 +180,48 @@ export const aiSummaries: AISummary[] = [
     createdAt: '2023-09-17T00:00:00Z',
     updatedAt: '2023-09-17T00:00:00Z',
   },
+  {
+    id: 2,
+    content: 'HealthInc has secured $2M in seed funding to develop its innovative healthcare solutions...',
+    fundingRoundId: 2,
+    createdAt: '2023-09-22T00:00:00Z',
+    updatedAt: '2023-09-22T00:00:00Z',
+  },
+  {
+    id: 3,
+    content: 'FinanceFlow has raised $15M in Series B to expand its fintech platform and enter new markets...',
+    fundingRoundId: 3,
+    createdAt: '2023-09-27T00:00:00Z',
+    updatedAt: '2023-09-27T00:00:00Z',
+  },
+  {
+    id: 4,
+    content: 'ShopSmart has closed an $8M Series A round to enhance its e-commerce technology and user experience...',
+    fundingRoundId: 4,
+    createdAt: '2023-10-02T00:00:00Z',
+    updatedAt: '2023-10-02T00:00:00Z',
+  },
   // Add more AI summaries as needed
 ];
 
 // Associate funding rounds with startups
 startups[0].fundingRounds.push(fundingRounds[0]);
+startups[1].fundingRounds.push(fundingRounds[1]);
+startups[2].fundingRounds.push(fundingRounds[2]);
+startups[3].fundingRounds.push(fundingRounds[3]);
 
 // Associate articles with startups and funding rounds
 startups[0].articles.push(articles[0]);
 fundingRounds[0].articles.push(articles[0]);
+startups[1].articles.push(articles[1]);
+fundingRounds[1].articles.push(articles[1]);
+startups[2].articles.push(articles[2]);
+fundingRounds[2].articles.push(articles[2]);
+startups[3].articles.push(articles[3]);
+fundingRounds[3].articles.push(articles[3]);
 
 // Associate AI summaries with funding rounds
 fundingRounds[0].aiSummary = aiSummaries[0];
+fundingRounds[1].aiSummary = aiSummaries[1];
+fundingRounds[2].aiSummary = aiSummaries[2];
+fundingRounds[3].aiSummary = aiSummaries[3];
