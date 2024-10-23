@@ -3,6 +3,7 @@ import Sidebar from './Sidebar';
 import StartupList from './StartupList';
 import DetailView from './DetailView';
 import { Industry, Startup } from '../data/types';
+import { IoChevronBackOutline } from "react-icons/io5";
 
 interface MobileLayoutProps {
   industries: Industry[];
@@ -50,7 +51,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
       <header className="bg-gray-100 p-4 flex items-center">
         {view !== 'industries' && (
           <button onClick={handleBack} className="mr-4">
-            Back
+            <IoChevronBackOutline className="w-6 h-6" />
           </button>
         )}
         <h1 className="text-xl font-semibold">

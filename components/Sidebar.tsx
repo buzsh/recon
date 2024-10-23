@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   onSelectIndustry,
 }) => {
   return (
-    <aside className="w-full md:w-64 bg-gray-100 overflow-y-auto font-['SF_Pro_Display',system-ui,sans-serif]">
+    <aside className="w-full md:w-64 bg-gray-100 overflow-y-auto">
       <div className="p-4">
         <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           Mailbox
@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           ].map((item, index) => (
             <li key={index}>
               <button
-                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 hover:bg-gray-200 text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
+                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 hover:bg-gray-200 text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
               >
                 <item.icon className="w-4 h-4 mr-3 text-blue-500 flex-shrink-0" />
                 <span className="truncate">{item.name}</span>
@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           <li>
             <button
               onClick={() => onSelectIndustry(null)}
-              className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
+              className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
                 selectedIndustryId === null
                   ? "bg-blue-500 text-white"
                   : "text-gray-700 hover:bg-gray-200"
@@ -61,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <li key={industry.id}>
               <button
                 onClick={() => onSelectIndustry(industry.id)}
-                className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
+                className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
                   selectedIndustryId === industry.id
                     ? "bg-blue-500 text-white"
                     : "text-gray-700 hover:bg-gray-200"

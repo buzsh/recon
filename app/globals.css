@@ -28,23 +28,34 @@ body {
   background: var(--background);
 }
 
-@keyframes ticker {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
+.ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: 100%;
+  animation: ticker-animation 120s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .ticker-content {
+    animation-duration: 120s;
   }
 }
 
-.animate-ticker {
-  animation: ticker 60s linear infinite;
-}
-
-.animate-ticker.paused {
+.ticker-content.paused {
   animation-play-state: paused;
 }
 
-.ticker-container {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+@keyframes ticker-animation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
 }
