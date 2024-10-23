@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import TopHeader from "../components/TopHeader";
+import TopHeader, { TickerItem } from "../components/TopHeader";
 import { startups } from "../data/sampleData";
 
 const geistSans = localFont({
@@ -20,16 +20,24 @@ export const metadata: Metadata = {
   description: "Market intelligence and startup funding data",
 };
 
-const prepareTickerItems = () => {
-  return startups.map(startup => ({
-    id: startup.id,
-    name: startup.name,
-    latestFundingRound: startup.fundingRounds[0] ? {
-      type: startup.fundingRounds[0].type,
-      amountRaised: startup.fundingRounds[0].amountRaised,
-      valuation: startup.fundingRounds[0].valuation
-    } : undefined
-  })).filter(item => item.latestFundingRound);
+const prepareTickerItems = (): TickerItem[] => {
+  return startups
+    .map(startup => {
+      const latestRound = startup.fundingRounds[0];
+      if (latestRound) {
+        return {
+          id: startup.id,
+          name: startup.name,
+          latestFundingRound: {
+            type: latestRound.type,
+            amountRaised: latestRound.amountRaised,
+            valuation: latestRound.valuation
+          }
+        };
+      }
+      return null;
+    })
+    .filter((item): item is TickerItem => item !== null);
 };
 
 export default function RootLayout({

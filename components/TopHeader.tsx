@@ -5,13 +5,13 @@ import ValuationPill from './ValuationPill';
 import { FundingRoundType } from '../data/types';
 import { formatCurrency } from '../app/utils/formatCurrency';
 
-interface TickerItem {
+export interface TickerItem {
   id: number;
   name: string;
   latestFundingRound: {
     type: FundingRoundType;
     amountRaised: number;
-    valuation?: number;
+    valuation: number | undefined;
   };
 }
 
