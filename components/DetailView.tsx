@@ -4,6 +4,7 @@ import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { formatCurrency } from "../app/utils/formatCurrency";
 import { HiOutlineLink, HiOutlineShare, HiOutlineGlobeAlt, HiOutlinePlusCircle, HiOutlineFlag } from "react-icons/hi2";
+import FundingHistoryGraph from "./FundingHistoryGraph";
 
 interface DetailViewProps {
   startup: Startup | null;
@@ -46,7 +47,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
   return (
     <div className="flex-1 overflow-y-auto">
       <div className="p-4">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-start mb-2">
           <h1 className="text-2xl font-bold">{startup.name}</h1>
           <div className="flex space-x-4">
             <button onClick={copyUrl} className="text-gray-600 hover:text-blue-600 transition-colors">
@@ -66,6 +67,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
             </button>
           </div>
         </div>
+        <p className="text-gray-600 mb-4">{startup.description}</p>
         <h2 className="text-xl font-semibold mb-4">Funding Rounds</h2>
         <ul className="mb-4 space-y-2">
           {startup.fundingRounds.map((round) => (
@@ -125,6 +127,13 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
                 <p className="mt-2">{article.content}</p>
               </details>
             ))}
+          </div>
+        )}
+
+        {startup.fundingRounds.length > 1 && (
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold mb-2">Funding History</h2>
+            <FundingHistoryGraph fundingRounds={startup.fundingRounds} />
           </div>
         )}
       </div>

@@ -30,6 +30,7 @@ export const startups: Startup[] = [
   {
     id: 1,
     name: 'TechCorp',
+    description: 'TechCorp is a cutting-edge technology company specializing in artificial intelligence and machine learning solutions for enterprise clients.',
     industries: [industries[0]],
     fundingRounds: [],
     articles: [],
@@ -39,6 +40,7 @@ export const startups: Startup[] = [
   {
     id: 2,
     name: 'HealthInc',
+    description: 'HealthInc is revolutionizing healthcare with innovative telemedicine platforms and AI-driven diagnostic tools for improved patient care.',
     industries: [industries[1]],
     fundingRounds: [],
     articles: [],
@@ -48,6 +50,7 @@ export const startups: Startup[] = [
   {
     id: 3,
     name: 'FinanceFlow',
+    description: 'FinanceFlow is a fintech startup that provides advanced analytics and blockchain-based solutions for secure and efficient financial transactions.',
     industries: [industries[2]],
     fundingRounds: [],
     articles: [],
@@ -57,6 +60,7 @@ export const startups: Startup[] = [
   {
     id: 4,
     name: 'ShopSmart',
+    description: 'ShopSmart is an e-commerce platform that leverages AI and personalization to create unique shopping experiences for consumers worldwide.',
     industries: [industries[3]],
     fundingRounds: [],
     articles: [],
@@ -121,7 +125,54 @@ export const fundingRounds: FundingRound[] = [
     createdAt: '2024-10-30T00:00:00Z',
     updatedAt: '2024-10-30T00:00:00Z',
   },
-  // Add more funding rounds as needed
+  {
+    id: 5,
+    startupId: 1,
+    type: 'Series B',
+    amountRaised: 20000000,
+    valuation: 100000000,
+    date: '2025-03-15T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2025-03-15T00:00:00Z',
+    updatedAt: '2025-03-15T00:00:00Z',
+  },
+  {
+    id: 6,
+    startupId: 2,
+    type: 'Series A',
+    amountRaised: 10000000,
+    valuation: 40000000,
+    date: '2025-05-20T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2025-05-20T00:00:00Z',
+    updatedAt: '2025-05-20T00:00:00Z',
+  },
+  {
+    id: 7,
+    startupId: 3,
+    type: 'Series C',
+    amountRaised: 50000000,
+    valuation: 500000000,
+    date: '2025-08-10T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2025-08-10T00:00:00Z',
+    updatedAt: '2025-08-10T00:00:00Z',
+  },
+  {
+    id: 8,
+    startupId: 4,
+    type: 'Series B',
+    amountRaised: 30000000,
+    valuation: 200000000,
+    date: '2025-11-05T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2025-11-05T00:00:00Z',
+    updatedAt: '2025-11-05T00:00:00Z',
+  },
 ];
 
 export const articles: Article[] = [
@@ -225,3 +276,9 @@ fundingRounds[0].aiSummary = aiSummaries[0];
 fundingRounds[1].aiSummary = aiSummaries[1];
 fundingRounds[2].aiSummary = aiSummaries[2];
 fundingRounds[3].aiSummary = aiSummaries[3];
+
+// Associate new funding rounds with startups
+startups[0].fundingRounds.push(fundingRounds[4]);
+startups[1].fundingRounds.push(fundingRounds[5]);
+startups[2].fundingRounds.push(fundingRounds[6]);
+startups[3].fundingRounds.push(fundingRounds[7]);

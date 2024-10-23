@@ -7,6 +7,7 @@ export interface Industry {
 export interface Startup {
   id: number;
   name: string;
+  description: string;
   industries: Industry[];
   fundingRounds: FundingRound[];
   articles: Article[];
