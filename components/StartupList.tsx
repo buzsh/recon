@@ -8,21 +8,34 @@ interface StartupListProps {
   startups: Startup[];
   selectedStartupId: number | null;
   onSelectStartup: (startupId: number) => void;
+  selectedIndustryName: string | null;
 }
 
 const StartupList: React.FC<StartupListProps> = ({
   startups,
   selectedStartupId,
   onSelectStartup,
+  selectedIndustryName,
 }) => {
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+  };
+
+  const sortedStartups = [...startups].sort((a, b) => {
+    const dateA = a.fundingRounds[0]?.createdAt ? new Date(a.fundingRounds[0].createdAt) : new Date(0);
+    const dateB = b.fundingRounds[0]?.createdAt ? new Date(b.fundingRounds[0].createdAt) : new Date(0);
+    return dateB.getTime() - dateA.getTime(); // Descending order (newest first)
+  });
+
   return (
     <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 overflow-y-auto">
       <div className="p-4">
         <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
-          Startups
+          {selectedIndustryName || "All Industry"} Startups
         </h2>
         <ul className="space-y-1">
-          {startups.map((startup) => {
+          {sortedStartups.map((startup) => {
             const latestFundingRound = startup.fundingRounds[0];
             const aiSummary = latestFundingRound?.aiSummary?.content || "";
             return (
@@ -36,9 +49,16 @@ const StartupList: React.FC<StartupListProps> = ({
                   }`}
                 >
                   <div className="flex flex-col">
-                    <span className="text-[17px] font-semibold tracking-[-0.37px] leading-[21px] truncate">
-                      {startup.name}
-                    </span>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[17px] font-semibold tracking-[-0.37px] leading-[21px] truncate">
+                        {startup.name}
+                      </span>
+                      {latestFundingRound && (
+                        <span className="text-[14px] font-normal text-gray-400">
+                          {formatDate(latestFundingRound.createdAt)}
+                        </span>
+                      )}
+                    </div>
                     {latestFundingRound && (
                       <div className="flex items-center space-x-2 mt-1">
                         <FundingRoundPill type={latestFundingRound.type} />

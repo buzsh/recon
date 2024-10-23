@@ -6,12 +6,13 @@ import StartupList from "../components/StartupList";
 import DetailView from "../components/DetailView";
 import MobileLayout from "../components/MobileLayout";
 import { industries, startups } from "../data/sampleData";
-import { Startup } from "../data/types";
+import { Startup, Industry } from "../data/types";
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const [selectedIndustryId, setSelectedIndustryId] = useState<number | null>(null);
   const [selectedStartupId, setSelectedStartupId] = useState<number | null>(null);
+  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -20,9 +21,11 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const handleSelectIndustry = (industryId: number) => {
+  const handleSelectIndustry = (industryId: number | null) => {
     setSelectedIndustryId(industryId);
     setSelectedStartupId(null);
+    const industry = industryId !== null ? industries.find(ind => ind.id === industryId) : null;
+    setSelectedIndustry(industry || null);
   };
 
   const handleSelectStartup = (startupId: number) => {
@@ -32,7 +35,7 @@ export default function Home() {
   const filteredStartups: Startup[] =
     selectedIndustryId !== null
       ? industries.find((ind) => ind.id === selectedIndustryId)?.startups || []
-      : [];
+      : startups;
 
   const selectedStartup: Startup | null =
     selectedStartupId !== null
@@ -54,6 +57,7 @@ export default function Home() {
         startups={filteredStartups}
         selectedStartupId={selectedStartupId}
         onSelectStartup={handleSelectStartup}
+        selectedIndustryName={selectedIndustry?.name || null}
       />
       <DetailView startup={selectedStartup} />
     </div>

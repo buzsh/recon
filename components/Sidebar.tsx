@@ -1,11 +1,11 @@
 import React from "react";
 import { Industry } from "../data/types";
-import { FaInbox, FaEnvelope, FaPaperPlane, FaTrash, FaFolder } from "react-icons/fa";
+import { FaInbox, FaEnvelope, FaPaperPlane, FaTrash, FaFolder, FaGlobe } from "react-icons/fa";
 
 interface SidebarProps {
   industries: Industry[];
   selectedIndustryId: number | null;
-  onSelectIndustry: (industryId: number) => void;
+  onSelectIndustry: (industryId: number | null) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -42,6 +42,21 @@ const Sidebar: React.FC<SidebarProps> = ({
           Industries
         </h2>
         <ul className="space-y-1">
+          <li>
+            <button
+              onClick={() => onSelectIndustry(null)}
+              className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
+                selectedIndustryId === null
+                  ? "bg-blue-500 text-white"
+                  : "text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              <FaGlobe className={`w-4 h-4 mr-3 flex-shrink-0 ${
+                selectedIndustryId === null ? "text-white" : "text-blue-500"
+              }`} />
+              <span className="truncate">All Industries</span>
+            </button>
+          </li>
           {industries.map((industry) => (
             <li key={industry.id}>
               <button
