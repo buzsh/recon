@@ -3,6 +3,7 @@ import { Startup, FundingRound } from "../data/types";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { formatCurrency } from "../app/utils/formatCurrency";
+import { HiOutlineLink, HiOutlineShare, HiOutlineGlobeAlt, HiOutlinePlusCircle, HiOutlineFlag } from "react-icons/hi2";
 
 interface DetailViewProps {
   startup: Startup | null;
@@ -29,6 +30,11 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
     }
   }, [fundingRoundId, startup]);
 
+  const copyUrl = () => {
+    navigator.clipboard.writeText(window.location.href);
+    // You might want to add a toast or some other feedback here
+  };
+
   if (!startup) {
     return (
       <div className="flex-1 p-4">
@@ -40,7 +46,26 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
   return (
     <div className="flex-1 overflow-y-auto">
       <div className="p-4">
-        <h1 className="text-2xl font-bold mb-2">{startup.name}</h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="text-2xl font-bold">{startup.name}</h1>
+          <div className="flex space-x-4">
+            <button onClick={copyUrl} className="text-gray-600 hover:text-blue-600 transition-colors">
+              <HiOutlineLink className="w-6 h-6" />
+            </button>
+            <button className="text-gray-600 hover:text-blue-600 transition-colors">
+              <HiOutlineShare className="w-6 h-6" />
+            </button>
+            <button className="text-gray-600 hover:text-blue-600 transition-colors">
+              <HiOutlineGlobeAlt className="w-6 h-6" />
+            </button>
+            <button className="text-gray-600 hover:text-blue-600 transition-colors">
+              <HiOutlinePlusCircle className="w-6 h-6" />
+            </button>
+            <button className="text-gray-600 hover:text-red-600 transition-colors">
+              <HiOutlineFlag className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
         <h2 className="text-xl font-semibold mb-4">Funding Rounds</h2>
         <ul className="mb-4 space-y-2">
           {startup.fundingRounds.map((round) => (
@@ -76,12 +101,6 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
           <div>
             <h3 className="text-lg font-semibold mb-2">AI Summary</h3>
             <p>{selectedFundingRound.aiSummary.content}</p>
-            <button
-              onClick={() => navigator.clipboard.writeText(window.location.href)}
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded"
-            >
-              Copy URL
-            </button>
           </div>
         )}
 
