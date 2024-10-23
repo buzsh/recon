@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { TrendingUp } from 'react-feather';
+import { FaArrowTrendUp } from "react-icons/fa6";
 import FundingRoundPill from './FundingRoundPill';
 import ValuationPill from './ValuationPill';
 import { FundingRoundType } from '../data/types';
@@ -27,7 +27,7 @@ const TopHeader: React.FC<TopHeaderProps> = ({ tickerItems }) => {
   return (
     <header className="h-11 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-4">
       <div className="flex items-center">
-        <TrendingUp className="text-blue-500 mr-2" />
+        <FaArrowTrendUp className="text-blue-500 dark:text-blue-400 mr-2" />
         <h1 className="text-xl font-bold">
           <span className="text-black dark:text-white">Market</span>
           <span className="text-blue-500 dark:text-blue-400">Recon</span>
