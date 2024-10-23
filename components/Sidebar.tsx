@@ -28,7 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
           ].map((item, index) => (
             <li key={index}>
               <button
-                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 hover:bg-gray-200 sidebar-item"
+                className="w-full flex items-center px-2 py-1.5 rounded-md text-gray-700 hover:bg-gray-200 text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden"
               >
                 <item.icon className="w-4 h-4 mr-3 text-blue-500 flex-shrink-0" />
                 <span className="truncate">{item.name}</span>
@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             <li key={industry.id}>
               <button
                 onClick={() => onSelectIndustry(industry.id)}
-                className={`w-full flex items-center px-2 py-1.5 rounded-md sidebar-item ${
+                className={`w-full flex items-center px-2 py-1.5 rounded-md text-[15px] font-['SF_Pro_Text',system-ui,sans-serif] font-normal tracking-[-0.24px] leading-[20px] grow shrink basis-full whitespace-nowrap overflow-hidden ${
                   selectedIndustryId === industry.id
                     ? "bg-blue-500 text-white"
                     : "text-gray-700 hover:bg-gray-200"
