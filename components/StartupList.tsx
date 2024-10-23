@@ -51,6 +51,7 @@ const StartupList: React.FC<StartupListProps> = ({
                             <ValuationPill
                               valuation={latestFundingRound.valuation}
                               amountRaised={latestFundingRound.amountRaised}
+                              fundingRoundType={latestFundingRound.type}
                             />
                           </>
                         )}

@@ -55,10 +55,17 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
               >
                 <div className="flex items-center space-x-2">
                   <FundingRoundPill type={round.type} />
-                  <span>{formatCurrency(round.amountRaised)}</span>
+                  <span className="font-bold">{formatCurrency(round.amountRaised)}</span>
                 </div>
                 {round.valuation && (
-                  <ValuationPill valuation={round.valuation} amountRaised={round.amountRaised} />
+                  <div className="flex items-center">
+                    <span className="text-gray-500 mr-1">@</span>
+                    <ValuationPill
+                      valuation={round.valuation}
+                      amountRaised={round.amountRaised}
+                      fundingRoundType={round.type}
+                    />
+                  </div>
                 )}
               </button>
             </li>
