@@ -14,7 +14,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
   const [selectedStartupId, setSelectedStartupId] = useState<number | null>(null);
   const [view, setView] = useState<'industries' | 'startups' | 'detail'>('industries');
 
-  const handleSelectIndustry = (industryId: number) => {
+  const handleSelectIndustry = (industryId: number | null) => {
     setSelectedIndustryId(industryId);
     setView('startups');
   };
@@ -33,13 +33,17 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
     }
   };
 
-  const filteredStartups = selectedIndustryId
+  const filteredStartups = selectedIndustryId !== null
     ? industries.find(ind => ind.id === selectedIndustryId)?.startups || []
-    : [];
+    : startups;
 
   const selectedStartup = selectedStartupId
     ? startups.find(s => s.id === selectedStartupId) || null
     : null;
+
+  const selectedIndustryName = selectedIndustryId !== null
+    ? industries.find(ind => ind.id === selectedIndustryId)?.name || "All Industries"
+    : "All Industries";
 
   return (
     <div className="h-screen flex flex-col">
@@ -51,7 +55,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
         )}
         <h1 className="text-xl font-semibold">
           {view === 'industries' && 'Industries'}
-          {view === 'startups' && 'Startups'}
+          {view === 'startups' && selectedIndustryName}
           {view === 'detail' && selectedStartup?.name}
         </h1>
       </header>
@@ -68,6 +72,7 @@ const MobileLayout: React.FC<MobileLayoutProps> = ({ industries, startups }) => 
             startups={filteredStartups}
             selectedStartupId={selectedStartupId}
             onSelectStartup={handleSelectStartup}
+            selectedIndustryName={selectedIndustryName}
           />
         )}
         {view === 'detail' && <DetailView startup={selectedStartup} />}

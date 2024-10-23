@@ -17,7 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     <aside className="w-full md:w-64 bg-gray-100 overflow-y-auto font-['SF_Pro_Display',system-ui,sans-serif]">
       <div className="p-4">
         <h2 className="text-[21px] font-semibold text-gray-500 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
-          Mailboxes
+          Mailbox
         </h2>
         <ul className="space-y-1">
           {[
