@@ -41,6 +41,10 @@ body {
   animation: ticker 60s linear infinite;
 }
 
+.animate-ticker.paused {
+  animation-play-state: paused;
+}
+
 .ticker-container {
   mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
