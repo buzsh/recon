@@ -301,6 +301,55 @@ export const fundingRounds: FundingRound[] = [
     createdAt: '2024-12-20T00:00:00Z',
     updatedAt: '2024-12-20T00:00:00Z',
   },
+  // New preceding funding rounds
+  {
+    id: 14,
+    startupId: 1,
+    type: 'Seed',
+    amountRaised: 2000000,
+    valuation: 10000000,
+    date: '2024-06-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-06-01T00:00:00Z',
+    updatedAt: '2024-06-01T00:00:00Z',
+  },
+  {
+    id: 15,
+    startupId: 2,
+    type: 'Pre-Seed',
+    amountRaised: 500000,
+    valuation: 2000000,
+    date: '2024-05-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-05-01T00:00:00Z',
+    updatedAt: '2024-05-01T00:00:00Z',
+  },
+  {
+    id: 16,
+    startupId: 3,
+    type: 'Seed',
+    amountRaised: 3000000,
+    valuation: 15000000,
+    date: '2024-07-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-07-01T00:00:00Z',
+    updatedAt: '2024-07-01T00:00:00Z',
+  },
+  {
+    id: 17,
+    startupId: 4,
+    type: 'Pre-Seed',
+    amountRaised: 1000000,
+    valuation: 5000000,
+    date: '2024-04-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-04-01T00:00:00Z',
+    updatedAt: '2024-04-01T00:00:00Z',
+  },
 ];
 
 export const articles: Article[] = [
@@ -462,6 +511,55 @@ export const articles: Article[] = [
     createdAt: '2025-11-06T00:00:00Z',
     updatedAt: '2025-11-06T00:00:00Z',
   },
+  // New articles for preceding funding rounds
+  {
+    id: 14,
+    title: 'TechCorp Secures $2M in Seed Funding',
+    content:
+      'TechCorp has secured $2 million in seed funding to kickstart its AI technology development...',
+    url: 'https://example.com/techcorp-seed',
+    publicationDate: '2024-06-02T00:00:00Z',
+    startupId: 1,
+    fundingRoundId: 14,
+    createdAt: '2024-06-02T00:00:00Z',
+    updatedAt: '2024-06-02T00:00:00Z',
+  },
+  {
+    id: 15,
+    title: 'HealthInc Raises $500K in Pre-Seed Round',
+    content:
+      'HealthInc has raised $500,000 in a pre-seed round to develop its telemedicine platform...',
+    url: 'https://example.com/healthinc-pre-seed',
+    publicationDate: '2024-05-02T00:00:00Z',
+    startupId: 2,
+    fundingRoundId: 15,
+    createdAt: '2024-05-02T00:00:00Z',
+    updatedAt: '2024-05-02T00:00:00Z',
+  },
+  {
+    id: 16,
+    title: 'FinanceFlow Secures $3M in Seed Funding',
+    content:
+      'FinanceFlow has secured $3 million in seed funding to enhance its fintech solutions...',
+    url: 'https://example.com/financeflow-seed',
+    publicationDate: '2024-07-02T00:00:00Z',
+    startupId: 3,
+    fundingRoundId: 16,
+    createdAt: '2024-07-02T00:00:00Z',
+    updatedAt: '2024-07-02T00:00:00Z',
+  },
+  {
+    id: 17,
+    title: 'ShopSmart Raises $1M in Pre-Seed Funding',
+    content:
+      'ShopSmart has raised $1 million in pre-seed funding to launch its e-commerce platform...',
+    url: 'https://example.com/shopsmart-pre-seed',
+    publicationDate: '2024-04-02T00:00:00Z',
+    startupId: 4,
+    fundingRoundId: 17,
+    createdAt: '2024-04-02T00:00:00Z',
+    updatedAt: '2024-04-02T00:00:00Z',
+  },
 ];
 
 export const aiSummaries: AISummary[] = [
@@ -567,6 +665,35 @@ export const aiSummaries: AISummary[] = [
     createdAt: '2025-11-06T00:00:00Z',
     updatedAt: '2025-11-06T00:00:00Z',
   },
+  // New AI summaries for preceding funding rounds
+  {
+    id: 14,
+    content: 'TechCorp secured $2M in seed funding to develop AI technologies.',
+    fundingRoundId: 14,
+    createdAt: '2024-06-03T00:00:00Z',
+    updatedAt: '2024-06-03T00:00:00Z',
+  },
+  {
+    id: 15,
+    content: 'HealthInc raised $500K in pre-seed funding for telemedicine development.',
+    fundingRoundId: 15,
+    createdAt: '2024-05-03T00:00:00Z',
+    updatedAt: '2024-05-03T00:00:00Z',
+  },
+  {
+    id: 16,
+    content: 'FinanceFlow secured $3M in seed funding to enhance fintech solutions.',
+    fundingRoundId: 16,
+    createdAt: '2024-07-03T00:00:00Z',
+    updatedAt: '2024-07-03T00:00:00Z',
+  },
+  {
+    id: 17,
+    content: 'ShopSmart raised $1M in pre-seed funding to launch its platform.',
+    fundingRoundId: 17,
+    createdAt: '2024-04-03T00:00:00Z',
+    updatedAt: '2024-04-03T00:00:00Z',
+  },
 ];
 
 // Associate funding rounds with startups
@@ -632,3 +759,25 @@ fundingRounds[4].aiSummary = aiSummaries[9];
 fundingRounds[5].aiSummary = aiSummaries[10];
 fundingRounds[6].aiSummary = aiSummaries[11];
 fundingRounds[7].aiSummary = aiSummaries[12];
+
+// Associate new funding rounds with startups
+startups[0].fundingRounds.unshift(fundingRounds[13]);
+startups[1].fundingRounds.unshift(fundingRounds[14]);
+startups[2].fundingRounds.unshift(fundingRounds[15]);
+startups[3].fundingRounds.unshift(fundingRounds[16]);
+
+// Associate new articles with startups and funding rounds
+startups[0].articles.unshift(articles[13]);
+fundingRounds[13].articles.push(articles[13]);
+startups[1].articles.unshift(articles[14]);
+fundingRounds[14].articles.push(articles[14]);
+startups[2].articles.unshift(articles[15]);
+fundingRounds[15].articles.push(articles[15]);
+startups[3].articles.unshift(articles[16]);
+fundingRounds[16].articles.push(articles[16]);
+
+// Associate new AI summaries with funding rounds
+fundingRounds[13].aiSummary = aiSummaries[13];
+fundingRounds[14].aiSummary = aiSummaries[14];
+fundingRounds[15].aiSummary = aiSummaries[15];
+fundingRounds[16].aiSummary = aiSummaries[16];
