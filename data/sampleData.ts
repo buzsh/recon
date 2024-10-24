@@ -350,6 +350,67 @@ export const fundingRounds: FundingRound[] = [
     createdAt: '2024-04-01T00:00:00Z',
     updatedAt: '2024-04-01T00:00:00Z',
   },
+  // New preceding funding rounds
+  {
+    id: 18,
+    startupId: 5,
+    type: 'Seed',
+    amountRaised: 1500000,
+    valuation: 5000000,
+    date: '2024-01-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-01-01T00:00:00Z',
+    updatedAt: '2024-01-01T00:00:00Z',
+  },
+  {
+    id: 19,
+    startupId: 6,
+    type: 'Pre-Seed',
+    amountRaised: 300000,
+    valuation: 1000000,
+    date: '2024-02-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-02-01T00:00:00Z',
+    updatedAt: '2024-02-01T00:00:00Z',
+  },
+  {
+    id: 20,
+    startupId: 7,
+    type: 'Seed',
+    amountRaised: 2500000,
+    valuation: 8000000,
+    date: '2024-03-01T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-03-01T00:00:00Z',
+    updatedAt: '2024-03-01T00:00:00Z',
+  },
+  {
+    id: 21,
+    startupId: 8,
+    type: 'Pre-Seed',
+    amountRaised: 500000,
+    valuation: 2000000,
+    date: '2024-01-15T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-01-15T00:00:00Z',
+    updatedAt: '2024-01-15T00:00:00Z',
+  },
+  {
+    id: 22,
+    startupId: 9,
+    type: 'Seed',
+    amountRaised: 2000000,
+    valuation: 7000000,
+    date: '2024-02-15T00:00:00Z',
+    aiSummary: undefined,
+    articles: [],
+    createdAt: '2024-02-15T00:00:00Z',
+    updatedAt: '2024-02-15T00:00:00Z',
+  },
 ];
 
 export const articles: Article[] = [
@@ -560,6 +621,67 @@ export const articles: Article[] = [
     createdAt: '2024-04-02T00:00:00Z',
     updatedAt: '2024-04-02T00:00:00Z',
   },
+  // New articles for preceding funding rounds
+  {
+    id: 18,
+    title: 'DataGenius Secures $1.5M in Seed Funding',
+    content:
+      'DataGenius has secured $1.5 million in seed funding to enhance its data analytics platform...',
+    url: 'https://example.com/datagenius-seed',
+    publicationDate: '2024-01-02T00:00:00Z',
+    startupId: 5,
+    fundingRoundId: 18,
+    createdAt: '2024-01-02T00:00:00Z',
+    updatedAt: '2024-01-02T00:00:00Z',
+  },
+  {
+    id: 19,
+    title: 'CyberShield Raises $300K in Pre-Seed Round',
+    content:
+      'CyberShield has raised $300,000 in a pre-seed round to develop its cybersecurity solutions...',
+    url: 'https://example.com/cybershield-pre-seed',
+    publicationDate: '2024-02-02T00:00:00Z',
+    startupId: 6,
+    fundingRoundId: 19,
+    createdAt: '2024-02-02T00:00:00Z',
+    updatedAt: '2024-02-02T00:00:00Z',
+  },
+  {
+    id: 20,
+    title: 'GreenTech Secures $2.5M in Seed Funding',
+    content:
+      'GreenTech has secured $2.5 million in seed funding to advance its sustainable energy solutions...',
+    url: 'https://example.com/greentech-seed',
+    publicationDate: '2024-03-02T00:00:00Z',
+    startupId: 7,
+    fundingRoundId: 20,
+    createdAt: '2024-03-02T00:00:00Z',
+    updatedAt: '2024-03-02T00:00:00Z',
+  },
+  {
+    id: 21,
+    title: 'VRWorld Raises $500K in Pre-Seed Funding',
+    content:
+      'VRWorld has raised $500,000 in pre-seed funding to develop its virtual reality experiences...',
+    url: 'https://example.com/vrworld-pre-seed',
+    publicationDate: '2024-01-16T00:00:00Z',
+    startupId: 8,
+    fundingRoundId: 21,
+    createdAt: '2024-01-16T00:00:00Z',
+    updatedAt: '2024-01-16T00:00:00Z',
+  },
+  {
+    id: 22,
+    title: 'CloudNet Secures $2M in Seed Funding',
+    content:
+      'CloudNet has secured $2 million in seed funding to expand its cloud networking solutions...',
+    url: 'https://example.com/cloudnet-seed',
+    publicationDate: '2024-02-16T00:00:00Z',
+    startupId: 9,
+    fundingRoundId: 22,
+    createdAt: '2024-02-16T00:00:00Z',
+    updatedAt: '2024-02-16T00:00:00Z',
+  },
 ];
 
 export const aiSummaries: AISummary[] = [
@@ -694,6 +816,42 @@ export const aiSummaries: AISummary[] = [
     createdAt: '2024-04-03T00:00:00Z',
     updatedAt: '2024-04-03T00:00:00Z',
   },
+  // New AI summaries for preceding funding rounds
+  {
+    id: 18,
+    content: 'DataGenius secured $1.5M in seed funding to enhance analytics.',
+    fundingRoundId: 18,
+    createdAt: '2024-01-03T00:00:00Z',
+    updatedAt: '2024-01-03T00:00:00Z',
+  },
+  {
+    id: 19,
+    content: 'CyberShield raised $300K in pre-seed funding for cybersecurity.',
+    fundingRoundId: 19,
+    createdAt: '2024-02-03T00:00:00Z',
+    updatedAt: '2024-02-03T00:00:00Z',
+  },
+  {
+    id: 20,
+    content: 'GreenTech secured $2.5M in seed funding for sustainable energy.',
+    fundingRoundId: 20,
+    createdAt: '2024-03-03T00:00:00Z',
+    updatedAt: '2024-03-03T00:00:00Z',
+  },
+  {
+    id: 21,
+    content: 'VRWorld raised $500K in pre-seed funding for VR development.',
+    fundingRoundId: 21,
+    createdAt: '2024-01-17T00:00:00Z',
+    updatedAt: '2024-01-17T00:00:00Z',
+  },
+  {
+    id: 22,
+    content: 'CloudNet secured $2M in seed funding for cloud solutions.',
+    fundingRoundId: 22,
+    createdAt: '2024-02-17T00:00:00Z',
+    updatedAt: '2024-02-17T00:00:00Z',
+  },
 ];
 
 // Associate funding rounds with startups
@@ -781,3 +939,29 @@ fundingRounds[13].aiSummary = aiSummaries[13];
 fundingRounds[14].aiSummary = aiSummaries[14];
 fundingRounds[15].aiSummary = aiSummaries[15];
 fundingRounds[16].aiSummary = aiSummaries[16];
+
+// Associate new funding rounds with startups
+startups[4].fundingRounds.unshift(fundingRounds[17]);
+startups[5].fundingRounds.unshift(fundingRounds[18]);
+startups[6].fundingRounds.unshift(fundingRounds[19]);
+startups[7].fundingRounds.unshift(fundingRounds[20]);
+startups[8].fundingRounds.unshift(fundingRounds[21]);
+
+// Associate new articles with startups and funding rounds
+startups[4].articles.unshift(articles[17]);
+fundingRounds[17].articles.push(articles[17]);
+startups[5].articles.unshift(articles[18]);
+fundingRounds[18].articles.push(articles[18]);
+startups[6].articles.unshift(articles[19]);
+fundingRounds[19].articles.push(articles[19]);
+startups[7].articles.unshift(articles[20]);
+fundingRounds[20].articles.push(articles[20]);
+startups[8].articles.unshift(articles[21]);
+fundingRounds[21].articles.push(articles[21]);
+
+// Associate new AI summaries with funding rounds
+fundingRounds[17].aiSummary = aiSummaries[17];
+fundingRounds[18].aiSummary = aiSummaries[18];
+fundingRounds[19].aiSummary = aiSummaries[19];
+fundingRounds[20].aiSummary = aiSummaries[20];
+fundingRounds[21].aiSummary = aiSummaries[21];
