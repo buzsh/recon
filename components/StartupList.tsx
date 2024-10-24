@@ -22,7 +22,12 @@ const StartupList: React.FC<StartupListProps> = ({
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   };
 
-  const sortedStartups = [...startups].sort((a, b) => {
+  const sortedStartups = [...startups].map(startup => {
+    const sortedFundingRounds = [...startup.fundingRounds].sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+    return { ...startup, fundingRounds: sortedFundingRounds };
+  }).sort((a, b) => {
     const dateA = a.fundingRounds[0]?.createdAt ? new Date(a.fundingRounds[0].createdAt) : new Date(0);
     const dateB = b.fundingRounds[0]?.createdAt ? new Date(b.fundingRounds[0].createdAt) : new Date(0);
     return dateB.getTime() - dateA.getTime(); // Descending order (newest first)

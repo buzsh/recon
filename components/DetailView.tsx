@@ -16,7 +16,10 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
 
   useEffect(() => {
     if (startup) {
-      setSelectedFundingRound(startup.fundingRounds[0] || null);
+      const sortedFundingRounds = [...startup.fundingRounds].sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+      setSelectedFundingRound(sortedFundingRounds[0] || null);
     }
   }, [startup]);
 
