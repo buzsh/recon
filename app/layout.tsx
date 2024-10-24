@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "MarketRecon",
     images: [
       {
-        url: "https://recon-mauve.vercel.app/og-cover.jpg",
+        url: "https://recon-mauve.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
       },
