@@ -413,6 +413,55 @@ export const articles: Article[] = [
     createdAt: '2024-12-21T00:00:00Z',
     updatedAt: '2024-12-21T00:00:00Z',
   },
+  // New articles for the latest funding rounds
+  {
+    id: 10,
+    title: 'TechCorp Raises $20M in Series B',
+    content:
+      'TechCorp has successfully raised $20 million in a Series B funding round to further develop its AI solutions...',
+    url: 'https://example.com/techcorp-series-b',
+    publicationDate: '2025-03-16T00:00:00Z',
+    startupId: 1,
+    fundingRoundId: 5,
+    createdAt: '2025-03-16T00:00:00Z',
+    updatedAt: '2025-03-16T00:00:00Z',
+  },
+  {
+    id: 11,
+    title: 'HealthInc Secures $10M in Series A',
+    content:
+      'HealthInc has secured $10 million in Series A funding to expand its telemedicine platform...',
+    url: 'https://example.com/healthinc-series-a',
+    publicationDate: '2025-05-21T00:00:00Z',
+    startupId: 2,
+    fundingRoundId: 6,
+    createdAt: '2025-05-21T00:00:00Z',
+    updatedAt: '2025-05-21T00:00:00Z',
+  },
+  {
+    id: 12,
+    title: 'FinanceFlow Raises $50M in Series C',
+    content:
+      'FinanceFlow has raised $50 million in a Series C round to enhance its blockchain solutions...',
+    url: 'https://example.com/financeflow-series-c',
+    publicationDate: '2025-08-11T00:00:00Z',
+    startupId: 3,
+    fundingRoundId: 7,
+    createdAt: '2025-08-11T00:00:00Z',
+    updatedAt: '2025-08-11T00:00:00Z',
+  },
+  {
+    id: 13,
+    title: 'ShopSmart Closes $30M Series B Round',
+    content:
+      'ShopSmart has closed a $30 million Series B round to expand its e-commerce platform...',
+    url: 'https://example.com/shopsmart-series-b',
+    publicationDate: '2025-11-06T00:00:00Z',
+    startupId: 4,
+    fundingRoundId: 8,
+    createdAt: '2025-11-06T00:00:00Z',
+    updatedAt: '2025-11-06T00:00:00Z',
+  },
 ];
 
 export const aiSummaries: AISummary[] = [
@@ -489,6 +538,35 @@ export const aiSummaries: AISummary[] = [
     createdAt: '2024-12-22T00:00:00Z',
     updatedAt: '2024-12-22T00:00:00Z',
   },
+  // New AI summaries for the latest funding rounds
+  {
+    id: 10,
+    content: 'TechCorp has raised $20M in Series B to enhance its AI solutions.',
+    fundingRoundId: 5,
+    createdAt: '2025-03-16T00:00:00Z',
+    updatedAt: '2025-03-16T00:00:00Z',
+  },
+  {
+    id: 11,
+    content: 'HealthInc secured $10M in Series A to expand its telemedicine platform.',
+    fundingRoundId: 6,
+    createdAt: '2025-05-21T00:00:00Z',
+    updatedAt: '2025-05-21T00:00:00Z',
+  },
+  {
+    id: 12,
+    content: 'FinanceFlow raised $50M in Series C to enhance its blockchain solutions.',
+    fundingRoundId: 7,
+    createdAt: '2025-08-11T00:00:00Z',
+    updatedAt: '2025-08-11T00:00:00Z',
+  },
+  {
+    id: 13,
+    content: 'ShopSmart closed a $30M Series B round to expand its e-commerce platform.',
+    fundingRoundId: 8,
+    createdAt: '2025-11-06T00:00:00Z',
+    updatedAt: '2025-11-06T00:00:00Z',
+  },
 ];
 
 // Associate funding rounds with startups
@@ -538,3 +616,19 @@ fundingRounds[9].aiSummary = aiSummaries[5];
 fundingRounds[10].aiSummary = aiSummaries[6];
 fundingRounds[11].aiSummary = aiSummaries[7];
 fundingRounds[12].aiSummary = aiSummaries[8];
+
+// Associate new articles with startups and funding rounds
+startups[0].articles.push(articles[9]);
+fundingRounds[4].articles.push(articles[9]);
+startups[1].articles.push(articles[10]);
+fundingRounds[5].articles.push(articles[10]);
+startups[2].articles.push(articles[11]);
+fundingRounds[6].articles.push(articles[11]);
+startups[3].articles.push(articles[12]);
+fundingRounds[7].articles.push(articles[12]);
+
+// Associate new AI summaries with funding rounds
+fundingRounds[4].aiSummary = aiSummaries[9];
+fundingRounds[5].aiSummary = aiSummaries[10];
+fundingRounds[6].aiSummary = aiSummaries[11];
+fundingRounds[7].aiSummary = aiSummaries[12];
