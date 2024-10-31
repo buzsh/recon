@@ -4,6 +4,7 @@ import { formatCurrency } from "@/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 interface StartupListProps {
   startups: Startup[];
@@ -16,7 +17,10 @@ const StartupList: React.FC<StartupListProps> = ({
   startups,
   selectedStartupId,
   onSelectStartup,
+  selectedIndustryName,
 }) => {
+  const { scrollRef, handleScroll } = useScrollPosition(`startup-list-${selectedIndustryName}`);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -34,7 +38,13 @@ const StartupList: React.FC<StartupListProps> = ({
   });
 
   return (
-    <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto">
+    <div 
+      ref={scrollRef}
+      onScroll={handleScroll}
+      className={`w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto ${
+        selectedStartupId ? 'hidden md:block' : ''
+      }`}
+    >
       <div className="p-4">
         <div className="relative mb-4">
           <div className="relative flex items-center px-1">
