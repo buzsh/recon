@@ -3,6 +3,7 @@ import { Startup } from "../data/types";
 import { formatCurrency } from "../app/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 interface StartupListProps {
   startups: Startup[];
@@ -39,6 +40,16 @@ const StartupList: React.FC<StartupListProps> = ({
         <h2 className="hidden md:block text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
           {selectedIndustryName || "All Industry"} Startups
         </h2>
+        <div className="relative mb-4">
+          <div className="relative flex items-center px-1">
+            <HiMagnifyingGlass className="absolute left-2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search..."
+              className="w-full bg-transparent py-2 pl-8 text-[16px] placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-0 dark:text-white select-none"
+            />
+          </div>
+        </div>
         <ul className="space-y-1">
           {sortedStartups.map((startup) => {
             const latestFundingRound = startup.fundingRounds[0];
