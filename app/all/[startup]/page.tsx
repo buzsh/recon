@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import StartupList from "@/components/StartupList";
 import DetailView from "@/components/DetailView";
@@ -8,9 +8,13 @@ import MobileLayout from "@/components/MobileLayout";
 import { industries, startups } from "@/data/sampleData";
 import useIsMobile from "@/hooks/useIsMobile";
 
-export default function Home() {
+export default function AllStartupsDetailPage() {
+  const params = useParams();
   const router = useRouter();
   const isMobile = useIsMobile();
+
+  const startupId = parseInt(params.startup as string);
+  const selectedStartup = startups.find(s => s.id === startupId) || null;
 
   if (isMobile) {
     return <MobileLayout industries={industries} startups={startups} />;
@@ -31,11 +35,11 @@ export default function Home() {
       />
       <StartupList
         startups={startups}
-        selectedStartupId={null}
-        onSelectStartup={(startupId) => router.push(`/all/${startupId}`)}
+        selectedStartupId={startupId}
+        onSelectStartup={(newStartupId) => router.push(`/all/${newStartupId}`)}
         selectedIndustryName="All Industries"
       />
-      <DetailView startup={null} />
+      <DetailView startup={selectedStartup} />
     </div>
   );
-}
+} 

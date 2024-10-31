@@ -8,7 +8,7 @@ import MobileLayout from "@/components/MobileLayout";
 import { industries, startups } from "@/data/sampleData";
 import useIsMobile from "@/hooks/useIsMobile";
 
-export default function Home() {
+export default function AllStartupsPage() {
   const router = useRouter();
   const isMobile = useIsMobile();
 
@@ -38,4 +38,4 @@ export default function Home() {
       <DetailView startup={null} />
     </div>
   );
-}
+} 
