@@ -134,7 +134,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
         )}
 
         {startup.fundingRounds.length > 1 && (
-          <div className="mb-6">
+          <div className="mt-8 mb-6">
             <h2 className="text-xl font-semibold mb-2">Funding History</h2>
             <FundingHistoryGraph fundingRounds={startup.fundingRounds} />
           </div>
