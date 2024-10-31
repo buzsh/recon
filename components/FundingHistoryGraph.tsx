@@ -9,7 +9,7 @@ import {
   ResponsiveContainer
 } from 'recharts';
 import { FundingRound, FundingRoundType } from '@/data/types';
-import { formatCurrency } from '@/app/utils/formatCurrency';
+import { formatCurrency } from '@/utils/formatCurrency';
 
 interface FundingHistoryGraphProps {
   fundingRounds: FundingRound[];

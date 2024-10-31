@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Startup, FundingRound } from "@/data/types";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
-import { formatCurrency } from "@/app/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { HiOutlineLink, HiOutlineShare, HiOutlineGlobeAlt, HiOutlinePlusCircle, HiOutlineFlag } from "react-icons/hi2";
 import FundingHistoryGraph from "./FundingHistoryGraph";
 

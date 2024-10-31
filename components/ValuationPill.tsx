@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatCurrency } from '@/app/utils/formatCurrency';
+import { formatCurrency } from '@/utils/formatCurrency';
 import { FundingRoundType } from '@/data/types';
 
 interface ValuationPillProps {
