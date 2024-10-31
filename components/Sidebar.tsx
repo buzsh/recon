@@ -1,5 +1,5 @@
 import React from "react";
-import { Industry } from "../data/types";
+import { Industry } from "@/data/types";
 import { FaInbox, FaEnvelope, FaPaperPlane, FaTrash, FaFolder, FaGlobe } from "react-icons/fa";
 
 interface SidebarProps {

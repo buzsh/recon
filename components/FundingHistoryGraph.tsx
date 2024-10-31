@@ -8,8 +8,8 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
-import { FundingRound, FundingRoundType } from '../data/types';
-import { formatCurrency } from '../app/utils/formatCurrency';
+import { FundingRound, FundingRoundType } from '@/data/types';
+import { formatCurrency } from '@/app/utils/formatCurrency';
 
 interface FundingHistoryGraphProps {
   fundingRounds: FundingRound[];

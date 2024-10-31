@@ -4,8 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowTrendUp } from "react-icons/fa6";
 import FundingRoundPill from './FundingRoundPill';
 import ValuationPill from './ValuationPill';
-import { FundingRoundType } from '../data/types';
-import { formatCurrency } from '../app/utils/formatCurrency';
+import { FundingRoundType } from '@/data/types';
+import { formatCurrency } from '@/app/utils/formatCurrency';
 
 export interface TickerItem {
   id: number;

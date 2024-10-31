@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import StartupList from './StartupList';
 import DetailView from './DetailView';
-import { Industry, Startup } from '../data/types';
+import { Industry, Startup } from '@/data/types';
 import { IoChevronBackOutline } from "react-icons/io5";
 import { FaFolder, FaGlobe, FaInbox, FaEnvelope, FaPaperPlane, FaTrash } from 'react-icons/fa';
 

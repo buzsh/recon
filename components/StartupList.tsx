@@ -1,6 +1,6 @@
 import React from "react";
-import { Startup } from "../data/types";
-import { formatCurrency } from "../app/utils/formatCurrency";
+import { Startup } from "@/data/types";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { HiMagnifyingGlass } from "react-icons/hi2";
