@@ -1,12 +1,12 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
-import Sidebar from "../../components/Sidebar";
-import StartupList from "../../components/StartupList";
-import DetailView from "../../components/DetailView";
-import MobileLayout from "../../components/MobileLayout";
-import { industries, startups } from "../../data/sampleData";
-import useIsMobile from "../../hooks/useIsMobile";
+import Sidebar from "@/components/Sidebar";
+import StartupList from "@/components/StartupList";
+import DetailView from "@/components/DetailView";
+import MobileLayout from "@/components/MobileLayout";
+import { industries, startups } from "@/data/sampleData";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function IndustryPage() {
   const params = useParams();
