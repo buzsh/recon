@@ -23,7 +23,7 @@ export default function IndustryPage() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-full">
       <Sidebar
         industries={industries}
         selectedIndustryId={industryId}

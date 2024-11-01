@@ -65,10 +65,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex flex-col`}
       >
         <TopHeader tickerItems={tickerItems} />
-        <main className="h-[calc(100vh-44px)]">
+        <main className="flex-1 overflow-hidden">
           {children}
         </main>
       </body>
