@@ -4,6 +4,7 @@ import { formatCurrency } from "@/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 interface StartupListProps {
   startups: Startup[];
@@ -16,7 +17,10 @@ const StartupList: React.FC<StartupListProps> = ({
   startups,
   selectedStartupId,
   onSelectStartup,
+  selectedIndustryName,
 }) => {
+  const { scrollRef, handleScroll } = useScrollPosition(`startup-list-${selectedIndustryName}`);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -34,8 +38,14 @@ const StartupList: React.FC<StartupListProps> = ({
   });
 
   return (
-    <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto">
-      <div className="p-4">
+    <div 
+      ref={scrollRef}
+      onScroll={handleScroll}
+      className={`w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto h-full flex flex-col ${
+        selectedStartupId ? 'hidden md:block' : ''
+      }`}
+    >
+      <div className="p-4 flex-1 min-h-0">
         <div className="relative mb-4">
           <div className="relative flex items-center px-1">
             <HiMagnifyingGlass className="absolute left-2 h-4 w-4 text-gray-400 pointer-events-none" />
@@ -46,7 +56,7 @@ const StartupList: React.FC<StartupListProps> = ({
             />
           </div>
         </div>
-        <ul className="space-y-1">
+        <ul className="space-y-1 overflow-y-auto pb-20">
           {sortedStartups.map((startup) => {
             const latestFundingRound = startup.fundingRounds[0];
             const aiSummary = latestFundingRound?.aiSummary?.content || "";
