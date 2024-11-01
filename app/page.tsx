@@ -1,46 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Sidebar from "../components/Sidebar";
 import StartupList from "../components/StartupList";
 import DetailView from "../components/DetailView";
 import MobileLayout from "../components/MobileLayout";
 import { industries, startups } from "../data/sampleData";
-import { Startup, Industry } from "../data/types";
+import useIsMobile from "../hooks/useIsMobile";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [selectedIndustryId, setSelectedIndustryId] = useState<number | null>(null);
-  const [selectedStartupId, setSelectedStartupId] = useState<number | null>(null);
-  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const handleSelectIndustry = (industryId: number | null) => {
-    setSelectedIndustryId(industryId);
-    setSelectedStartupId(null);
-    const industry = industryId !== null ? industries.find(ind => ind.id === industryId) : null;
-    setSelectedIndustry(industry || null);
-  };
-
-  const handleSelectStartup = (startupId: number) => {
-    setSelectedStartupId(startupId);
-  };
-
-  const filteredStartups: Startup[] =
-    selectedIndustryId !== null
-      ? industries.find((ind) => ind.id === selectedIndustryId)?.startups || []
-      : startups;
-
-  const selectedStartup: Startup | null =
-    selectedStartupId !== null
-      ? startups.find((s) => s.id === selectedStartupId) || null
-      : null;
+  const router = useRouter();
+  const isMobile = useIsMobile();
 
   if (isMobile) {
     return <MobileLayout industries={industries} startups={startups} />;
@@ -50,16 +20,22 @@ export default function Home() {
     <div className="flex flex-col md:flex-row h-screen">
       <Sidebar
         industries={industries}
-        selectedIndustryId={selectedIndustryId}
-        onSelectIndustry={handleSelectIndustry}
+        selectedIndustryId={null}
+        onSelectIndustry={(industryId) => {
+          if (industryId) {
+            router.push(`/${industryId}`);
+          } else {
+            router.push('/');
+          }
+        }}
       />
       <StartupList
-        startups={filteredStartups}
-        selectedStartupId={selectedStartupId}
-        onSelectStartup={handleSelectStartup}
-        selectedIndustryName={selectedIndustry?.name || null}
+        startups={startups}
+        selectedStartupId={null}
+        onSelectStartup={(startupId) => router.push(`/all/${startupId}`)}
+        selectedIndustryName={null}
       />
-      <DetailView startup={selectedStartup} />
+      <DetailView startup={null} />
     </div>
   );
 }

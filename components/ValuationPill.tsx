@@ -6,10 +6,9 @@ interface ValuationPillProps {
   valuation: number;
   amountRaised: number;
   fundingRoundType: FundingRoundType;
-  isDarkMode?: boolean;
 }
 
-const getColorClasses = (percentage: number, fundingRoundType: FundingRoundType, isDarkMode: boolean): string => {
+const getColorClasses = (percentage: number, fundingRoundType: FundingRoundType): string => {
   const ranges = {
     'Pre-Seed': { veryBad: 30, slightlyBad: 25, common: 10, slightlyGood: 5 },
     'Seed': { veryBad: 30, slightlyBad: 25, common: 10, slightlyGood: 5 },
@@ -26,21 +25,21 @@ const getColorClasses = (percentage: number, fundingRoundType: FundingRoundType,
   const range = ranges[fundingRoundType] || ranges['Series D'];
 
   if (percentage > range.veryBad) {
-    return isDarkMode ? 'bg-red-900 text-red-100' : 'bg-red-100 text-red-800';
+    return 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100';
   } else if (percentage > range.slightlyBad) {
-    return isDarkMode ? 'bg-orange-900 text-orange-100' : 'bg-orange-100 text-orange-800';
+    return 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100';
   } else if (percentage > range.common) {
-    return isDarkMode ? 'bg-yellow-900 text-yellow-100' : 'bg-yellow-100 text-yellow-800';
+    return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100';
   } else if (percentage > range.slightlyGood) {
-    return isDarkMode ? 'bg-green-900 text-green-100' : 'bg-green-100 text-green-800';
+    return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100';
   } else {
-    return isDarkMode ? 'bg-emerald-900 text-emerald-100' : 'bg-emerald-100 text-emerald-800';
+    return 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100';
   }
 };
 
-const ValuationPill: React.FC<ValuationPillProps> = ({ valuation, amountRaised, fundingRoundType, isDarkMode = false }) => {
+const ValuationPill: React.FC<Omit<ValuationPillProps, 'isDarkMode'>> = ({ valuation, amountRaised, fundingRoundType }) => {
   const percentage = (amountRaised / valuation) * 100;
-  const colorClasses = getColorClasses(percentage, fundingRoundType, isDarkMode);
+  const colorClasses = getColorClasses(percentage, fundingRoundType);
 
   return (
     <span className={`inline-block px-2 py-1 text-xs font-semibold rounded-full ${colorClasses}`}>
