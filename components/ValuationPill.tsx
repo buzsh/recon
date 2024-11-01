@@ -1,6 +1,6 @@
 import React from 'react';
-import { formatCurrency } from '../app/utils/formatCurrency';
-import { FundingRoundType } from '../data/types';
+import { formatCurrency } from '@/utils/formatCurrency';
+import { FundingRoundType } from '@/data/types';
 
 interface ValuationPillProps {
   valuation: number;

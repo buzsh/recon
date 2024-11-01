@@ -1,6 +1,6 @@
 import React from "react";
-import { Startup } from "../data/types";
-import { formatCurrency } from "../app/utils/formatCurrency";
+import { Startup } from "@/data/types";
+import { formatCurrency } from "@/utils/formatCurrency";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
 import { HiMagnifyingGlass } from "react-icons/hi2";
@@ -16,7 +16,6 @@ const StartupList: React.FC<StartupListProps> = ({
   startups,
   selectedStartupId,
   onSelectStartup,
-  selectedIndustryName,
 }) => {
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -37,9 +36,6 @@ const StartupList: React.FC<StartupListProps> = ({
   return (
     <div className="w-full md:w-96 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-700 bg-white dark:bg-[#000] overflow-y-auto">
       <div className="p-4">
-        <h2 className="hidden md:block text-[21px] font-semibold text-gray-500 dark:text-gray-400 mb-4 pl-2 leading-[25px] tracking-[0.23px]">
-          {selectedIndustryName || "All Industry"} Startups
-        </h2>
         <div className="relative mb-4">
           <div className="relative flex items-center px-1">
             <HiMagnifyingGlass className="absolute left-2 h-4 w-4 text-gray-400 pointer-events-none" />

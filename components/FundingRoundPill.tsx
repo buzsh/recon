@@ -1,5 +1,5 @@
 import React from 'react';
-import { FundingRoundType } from '../data/types';
+import { FundingRoundType } from '@/data/types';
 
 interface FundingRoundPillProps {
   type: FundingRoundType;

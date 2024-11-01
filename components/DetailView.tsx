@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Startup, FundingRound } from "../data/types";
+import { Startup, FundingRound } from "@/data/types";
 import FundingRoundPill from "./FundingRoundPill";
 import ValuationPill from "./ValuationPill";
-import { formatCurrency } from "../app/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatCurrency";
 import { HiOutlineLink, HiOutlineShare, HiOutlineGlobeAlt, HiOutlinePlusCircle, HiOutlineFlag } from "react-icons/hi2";
 import FundingHistoryGraph from "./FundingHistoryGraph";
 
@@ -134,7 +134,7 @@ const DetailView: React.FC<DetailViewProps> = ({ startup, fundingRoundId }) => {
         )}
 
         {startup.fundingRounds.length > 1 && (
-          <div className="mb-6">
+          <div className="mt-8 mb-6">
             <h2 className="text-xl font-semibold mb-2">Funding History</h2>
             <FundingHistoryGraph fundingRounds={startup.fundingRounds} />
           </div>
